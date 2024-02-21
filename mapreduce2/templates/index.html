@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Palabras</title>
+</head>
+<body>
+    <h1>Contador de Palabras</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="archivo_texto" accept=".txt">
+        <button type="submit">Contar Palabras</button>
+    </form>
+
+    {% if conteo_palabras %}
+    <h2>Top 5 Conteos de Palabras</h2>
+    <ul>
+        {% for palabra, conteo in conteo_palabras[0] %}
+        <li>{{ palabra }}: {{ conteo }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Otros Conteos de Palabras</h2>
+    <ul>
+        {% for palabra, conteo in conteo_palabras[1] %}
+        <li>{{ palabra }}: {{ conteo }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
